@@ -20,12 +20,26 @@ const displayCountries = countries => {
         const element = countries[i];
         const countriesDiv = document.getElementById('all-countries');
         const countryDiv = document.createElement('div')
-        const countryName = document.createElement('h3')
-        const countryCapital = document.createElement('p')
-        countryName.innerText = element.name;
-        countryCapital.innerText = element.capital;
-        countryDiv.appendChild(countryName);
-        countryDiv.appendChild(countryCapital);
+        countryDiv.className = 'country'
+
+        // const countryName = document.createElement('h3')
+        // countryName.innerText = element.name;
+        // countryDiv.appendChild(countryName);
+
+        // const countryCapital = document.createElement('p')
+        // countryCapital.innerText = element.capital;
+        // countryDiv.appendChild(countryCapital);
+
+        const countryInfo = `
+        <img class="img-flag" src='${element.flag}'>
+        <h3 class="country-name">${element.name}</h3>
+        <p>capital : ${element.capital}</p>
+        <p>languages : ${element.languages[0].name}</p>
+        <p>population : ${element.population}</p>
+        <p>region : ${element.region}</p>
+        
+        `
+        countryDiv.innerHTML = countryInfo
         countriesDiv.appendChild(countryDiv)
     }
 }
